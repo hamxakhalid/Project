@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shavez Free Classified Ads</title>
+    <meta name="description" content="Simplex theme is free template based on Bootstrap version 3.0.0 and it can be used for any purpose.">
+    <meta name="author" content="">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+      <link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+      <link href="~/Content/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/Content/templatemo_justified.css" rel="stylesheet">
+      <link href="~/Content/Site.css" rel="stylesheet" />
+      <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+          @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+  </head>
+
+
+  <body>
+      @Scripts.Render("~/bundles/jquery")
+<script>
+
+    $(document).ready(function () {
+
+
+
+        $('#b1').click(function () {
+
+            var userName = $('#s1').val();
+
+
+   
+            $('#bd1').children().remove();
+            $.getJSON("/PostAd/searchAdByTitle?Title=" + userName, function (data) {
+                
+                $.each(data, function (i, item) {
+                    $('#bd1').append('<div class="row"><div class="span8"><div class="row"><div class="span8">');
+                    $('#bd1').append('<h4><strong><a href="#">Title : ' + item.title + '</a></strong></h4></div></div>');
+                    $('#bd1').append('<div class="row"><div class="span2"><img src="' + item.image + '"</div>');
+                    $('#bd1').append('<div class="span6"><p><p><b>Description: </b>' + item.description + '</p></p>');
+                    $('#bd1').append('<p><p><b>Name: </b>' + item.contactName + '</p></p><p>');
+                    $('#bd1').append('<p><b>Email: </b>' + item.email + '</p></p><p>');
+                    $('#bd1').append('<p><b>Phone Number: </b>' + item.number + '</p></p><p><p><b>Location: </b>' + item.location + '</p>');
+                    $('#bd1').append('</p> <div class="container"></div></div></div></div></div></div><hr>');
+                
+            });
+
+        });
+
+        });
+    });
+    </script>
+
+
+
+
+    <div id="container" class="container">
+
+        <a href="http://www.templatemo.com/preview/templatemo_382_simplex" rel="nofollow"><img src="~/images/mobile.jpg" alt="Simplex Header" class="img-responsive" /></a>
+        <a href="http://se.azimage.com/" title="Stock bilder"  class="container_bg" target="_blank"></a>
+        
+        <ul class="nav nav-justified">
+          <li class="active"><a href="/Home/Index">Home</a></li>
+          <li><a href="/About/About">About Us</a></li>
+          <li><a href="/Home/Contact">Contact Us</a></li>
+            <li><a href="/SignUp/Signin">Sign In</a></li>
+          <li><a href="/SignUp/SignUp">Sign Up</a></li>
+          <li><a href="/PostAd/PostAd">Post Free Ad</a></li>
+        </ul>
+        <div class="container">
+	<div class="row">
+		   <h2>Search Your Ad</h2>
+           <div id="custom-search-input">
+                            <div class="input-group col-md-4">
+                                <input type="text" class="  search-query form-control" placeholder="Search" id="s1" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-success" type="button" id="b1">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+	</div>
+</div>
+        <div id="bd1">
+        @RenderBody()
+    </div>
+
+      <!-- Site footer -->
+      <div class="footer">
+        <p>Copyright © Project by Shavez Qureshi (BCSF10M024) | Thank You for visiting the Web Site.</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+<script src='http://ajax.googleapis.com/ajax/libs/jquery/1.3.1/jquery.min.js'></script>
+<script type='text/javascript' src='~/Scripts/logging.js'></script>
+</html>

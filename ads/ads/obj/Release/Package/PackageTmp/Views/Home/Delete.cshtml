@@ -1,0 +1,75 @@
+﻿@model ads.Models.ad
+
+@{
+    ViewBag.Title = "AfterLoginIndex";
+}
+@{
+    Layout = "~/Views/Shared/afterLogin.cshtml";
+}
+<h2>Delete Your Ad</h2>
+      
+        
+       
+  @using (Html.BeginForm()) {
+   
+
+    <fieldset>
+        <legend>Ad</legend>
+        @Html.HiddenFor(model => model.email)
+        @Html.HiddenFor(model => model.Id)
+        <div class="span2">
+<img src="@Model.image" />
+            </div>
+        @Html.HiddenFor(model => model.location)
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+           @Model.title
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.price)
+        </div>
+        <div class="editor-field">
+            @Model.price
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.description)
+        </div>
+        <div class="editor-field">
+            @Model.description
+           
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.number)
+        </div>
+        <div class="editor-field">
+           @Model.number
+           
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.contactName)
+        </div>
+        <div class="editor-field">
+           @Model.contactName
+           
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.address)
+        </div>
+        <div class="editor-field">
+            @Model.address
+           
+        </div>
+
+        <p>
+            <input type="submit" class="btn btn-danger " value="Delete" />
+        </p>
+    </fieldset>
+}

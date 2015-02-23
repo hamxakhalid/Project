@@ -1,0 +1,62 @@
+@model List<ads.Models.ad>
+
+@{
+    ViewBag.Title = "index";
+}
+@foreach (var item in Model)
+    {       
+        
+        <div class="row">
+  <div class="span8">
+    <div class="row">
+      <div class="span8">
+        <h4><strong><a href="#">Title : @item.title</a></strong></h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span2">
+           <img src="@item.image">
+      </div>
+      <div class="span6">      
+        <p>
+            <p><b>Description: </b>@item.description</p>
+        </p>
+          <p>
+            <p><b>Price: </b>@item.price</p>
+
+        </p>
+          <p>
+            <p><b>Name: </b>@item.contactName</p>
+        </p>
+        <p>
+            <p><b>Email: </b>@item.email</p>
+        </p>
+          <p>
+            <p><b>Phone Number: </b>@item.number</p>
+        </p>
+          <p>
+            <p><b>Location: </b>@item.location</p>
+        </p>
+          <div class="container">
+	@*<div class="row">
+        <br>
+            
+    	    <a class="btn btn-primary btn-outline">Edit Ad</a>
+            <a class="btn btn-success btn-outline">Delete Ad</a>
+            </div>*@
+</div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="span8">
+        <p></p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+        
+    }
+

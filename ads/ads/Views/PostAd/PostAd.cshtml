@@ -1,0 +1,138 @@
+﻿@{
+    ViewBag.Title = "PostAd";
+}
+@model ads.Models.ad
+
+<h2>Post a Free Ad </h2>
+ <div class="container" style="margin-top:100px">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form role="form" action="/PostAd/SaveAd" method="post" enctype="multipart/form-data">
+            <table>
+                
+
+                <tr>
+
+                    <td>
+                        <label for="inputPassword" class="col-sm-2 control-label">Title</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.title, new { placeholder = "Enter Title", type = "text" })
+                    @Html.ValidationMessageFor(m => m.title)
+                         </td>
+                </tr>
+
+
+                <tr>
+
+                    <td>
+                        <label for="inputPassword" class="col-sm-2 control-label">Description</label>
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(m => m.description, new {@cols="30" , @rows="4", type="text" })
+                    @Html.ValidationMessageFor(m => m.description)
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <label for="inputPassword" class="col-sm-2 control-label">Price</label>
+                    </td>
+                    <td>
+                         @Html.TextBoxFor(m => m.price, new { placeholder = "Enter Price", type = "text" })
+@Html.ValidationMessageFor(m => m.price)
+                    
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>
+                        <label for="exampleInputFile">Upload Image</label>
+                    </td>
+                    <td>
+                        <input type="file" name="image" id="exampleInputFile" data-val="true" data-val-required="This must be a Image">
+                     <span class="field-validation-valid" data-valmsg-for="image" data-valmsg-replace="true"></span>
+                    </td>
+                </tr>
+              <tr>
+            <td>
+                <label for="inputPassword" class="col-sm-2 control-label">Contact Name</label>
+
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.contactName, new { placeholder = "Your Contact Name", type = "text" })
+             @Html.ValidationMessageFor(m => m.contactName)
+            </td>
+        </tr>
+
+         <tr>
+            <td>
+                <label for="inputPassword" class="col-sm-2 control-label">Email</label>
+
+            </td>
+            <td>
+                
+                @Html.TextBoxFor(m => m.email, new { placeholder = "Your Email Address", type = "text" })
+             @Html.ValidationMessageFor(m => m.email)
+            </td>
+        </tr>
+                <tr>
+
+                    <td>
+                         <label for="inputPassword" class="col-sm-2 control-label">Address</label>
+
+                    </td>
+                    <td>
+                         @Html.TextBoxFor(m => m.address, new { placeholder = "Your Address", type = "text" })
+                         @Html.ValidationMessageFor(m => m.address)
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                         <label for="inputPassword" class="col-sm-2 control-label">Phone Number</label>
+                    </td>
+                    <td>
+                          @Html.TextBoxFor(m => m.number, new { placeholder = "Your Cell Number", type = "text" })
+                     @Html.ValidationMessageFor(m => m.number)
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>
+                        <label for="category" class="col-sm-9 control-label">Location</label>
+
+                    </td>
+                    <td>
+                           <select class="form-control" name="location" data-val="true" data-val-required="This must be a location">
+  <span class="field-validation-valid" data-valmsg-for="location" data-valmsg-replace="true"></span>
+                               <option>Lahore</option>
+  <option>Peshawar</option>
+  <option>Karachi</option>
+  <option>Islamabad</option>
+  <option>Multan</option>
+  <option>Quetta</option>
+</select>	
+                         
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Post" class="btn btn-primary btn-block btn-lg" tabindex="7">
+                    </td>
+                </tr>
+            </table>
+			
+			
+
+
+   
+
+		</form>
+	</div>
+</div>
+     </div>
+ @Scripts.Render("~/bundles/jqueryval")

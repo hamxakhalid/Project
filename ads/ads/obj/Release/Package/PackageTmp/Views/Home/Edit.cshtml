@@ -1,0 +1,73 @@
+﻿@model ads.Models.ad
+
+@{
+    ViewBag.Title = "AfterLoginIndex";
+}
+@{
+    Layout = "~/Views/Shared/afterLogin.cshtml";
+}
+<h2>Edit Your Ad</h2>       
+       @using (Html.BeginForm()) {
+   
+
+    <fieldset>
+        <legend>Ad</legend>
+        
+        @Html.HiddenFor(model => model.Id)
+@Html.HiddenFor(model => model.image)
+        @Html.HiddenFor(model => model.email)
+        @Html.HiddenFor(model => model.location)
+
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.title)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.title)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.price)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.price)
+           
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.description)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.description)
+           
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.number)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.number)
+           
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.contactName)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.contactName)
+           
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.address)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.address)
+           
+        </div>
+
+        <p>
+           <input type="submit" value="Edit" class="btn  btn-success " />     
+        </p>
+    </fieldset>
+}
+
+
